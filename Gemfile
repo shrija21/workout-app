@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '5.0.5'
 gem 'd3-rails', '4.1.0'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
