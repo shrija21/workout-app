@@ -1,11 +1,13 @@
 class ExercisesController < ApplicationController
 
 	def index
+		# byebug
 		@exercises = current_user.exercises
 	end
 
 	def show
-		@exercise = current_user.exercises.find params[:id]
+		# byebug
+		@exercise = current_user.exercises.find_by params[:id]
 	end
 
 	def new
