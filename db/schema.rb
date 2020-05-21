@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200520163032) do
+ActiveRecord::Schema.define(version: 20200521083055) do
 
   create_table "exercises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "duration_in_min"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20200520163032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -44,4 +52,5 @@ ActiveRecord::Schema.define(version: 20200520163032) do
   end
 
   add_foreign_key "exercises", "users"
+  add_foreign_key "rooms", "users"
 end

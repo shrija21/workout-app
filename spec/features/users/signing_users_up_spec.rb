@@ -14,11 +14,16 @@ RSpec.feature "Users signup" do
 
 		expect(page).to have_content("You have signed up successfully.")
 
+		user = User.last
+		room = user.room
+		room_name = user.full_name.split.join('-')
+		expect(room.name).to eq(room_name)
+
 		visit "/"
 		expect(page).to have_content("John Doe")
 	end
 
-	scenario "with invalid credentials" do
+	scenario "with invalid cr edentials" do
 		visit "/"
 		click_link "Sign up"
 		fill_in "First name", with: ""
